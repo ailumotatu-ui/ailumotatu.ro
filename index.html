@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ai lu' Moțatu — Catering tradițional românesc | Gustul de acasă</title>
+<meta name="description" content="Ai lu' Moțatu — catering tradițional românesc pentru evenimente private, platouri de sărbători și business lunch. Gustul de acasă. Ridicare comenzi în Craiova.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Marcellus&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --negru:#16110d;
+  --negru-2:#1f1813;
+  --negru-3:#2a211a;
+  --crem:#f3e6cf;
+  --crem-soft:#d8c8ab;
+  --foc:#d2702a;
+  --foc-clar:#e8913f;
+  --caramiziu:#a8531f;
+  --umbra:rgba(0,0,0,.55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--negru);
+  color:var(--crem);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.1}
+.serif-display{font-family:'Marcellus',serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ===== Textura de fundal ===== */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(210,112,42,.10), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(168,83,31,.08), transparent 50%);
+}
+.noise{
+  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== Iconuri SVG ===== */
+.ico-svg{width:1em;height:1em;display:inline-block;vertical-align:middle}
+
+/* ===== Bara de sus ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+  background:rgba(22,17,13,.6);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(243,230,207,.08);
+  transition:.4s;
+}
+header.scrolled{background:rgba(22,17,13,.94);padding:10px 24px}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Marcellus',serif;font-size:1.25rem;letter-spacing:.5px}
+.brand .mark{
+  width:40px;height:40px;border-radius:50%;
+  display:grid;place-items:center;
+  background:radial-gradient(circle,var(--negru-3),var(--negru));
+  border:1.5px solid var(--foc);
+  font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1rem;color:var(--foc-clar);
+}
+nav.links{display:flex;gap:30px;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--crem-soft)}
+nav.links a{position:relative;transition:.3s}
+nav.links a:hover{color:var(--foc-clar)}
+nav.links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--foc);transition:.3s}
+nav.links a:hover::after{width:100%}
+.btn-tel{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:11px 22px;border-radius:40px;
+  background:linear-gradient(135deg,var(--foc),var(--caramiziu));
+  color:var(--negru);font-weight:600;font-size:.9rem;letter-spacing:.5px;
+  box-shadow:0 6px 22px rgba(210,112,42,.35);
+  transition:.3s;
+}
+.btn-tel:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(210,112,42,.5)}
+.btn-tel svg{width:16px;height:16px}
+.menu-toggle{display:none;background:none;border:none;color:var(--crem);font-size:1.6rem;cursor:pointer}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;z-index:1;
+  min-height:100vh;display:flex;align-items:center;
+  padding:120px 0 60px;
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(210,112,42,.18), transparent 60%);
+}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:var(--foc-clar);margin-bottom:24px;
+}
+.eyebrow::before,.eyebrow::after{content:'';width:30px;height:1px;background:var(--foc)}
+.hero h1{font-size:clamp(3rem,7vw,5.6rem);color:var(--crem);margin-bottom:18px}
+.hero h1 em{font-style:italic;color:var(--foc-clar);font-weight:700}
+.hero .lead{font-size:1.18rem;color:var(--crem-soft);max-width:36ch;margin-bottom:36px;font-weight:300}
+.hero-cta{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.btn-mare{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:18px 34px;border-radius:48px;font-size:1.05rem;font-weight:600;letter-spacing:.5px;
+  background:linear-gradient(135deg,var(--foc),var(--caramiziu));
+  color:var(--negru);box-shadow:0 10px 30px rgba(210,112,42,.4);
+  transition:.3s;
+}
+.btn-mare:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(210,112,42,.55)}
+.btn-mare svg{width:20px;height:20px}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:18px 30px;border-radius:48px;font-size:1rem;font-weight:500;
+  border:1.5px solid rgba(243,230,207,.25);color:var(--crem);transition:.3s;
+}
+.btn-ghost:hover{border-color:var(--foc);color:var(--foc-clar)}
+
+/* Medalionul din hero */
+.medalion{position:relative;display:grid;place-items:center}
+.medalion .disc{
+  width:min(420px,80vw);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 50% 40%,var(--negru-3),var(--negru) 70%);
+  border:2px solid rgba(243,230,207,.15);
+  display:grid;place-items:center;text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,.6), inset 0 0 60px rgba(210,112,42,.10);
+  position:relative;
+  animation:flutter 6s ease-in-out infinite;
+}
+.medalion .ring{
+  position:absolute;inset:18px;border-radius:50%;
+  border:1px solid rgba(210,112,42,.3);
+}
+.medalion .inner{display:grid;place-items:center;padding:30px}
+.medalion .mono{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;
+  font-size:clamp(3.4rem,9vw,5rem);color:var(--crem);line-height:.9;
+}
+.medalion .inner h2{font-family:'Marcellus',serif;font-size:clamp(1.5rem,4vw,2rem);color:var(--crem);letter-spacing:1px;margin-top:6px}
+.medalion .inner .sub{font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--foc-clar);margin-top:12px}
+.medalion .wheat{margin:0 auto 4px;width:42px;height:42px;color:var(--foc)}
+.glow{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(210,112,42,.22),transparent 60%);filter:blur(40px);z-index:-1;animation:pulse 4s ease-in-out infinite}
+@keyframes flutter{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:.85}}
+
+/* ===== Bandă scroll ===== */
+.banda{
+  position:relative;z-index:1;
+  background:linear-gradient(90deg,var(--caramiziu),var(--foc));
+  color:var(--negru);overflow:hidden;padding:16px 0;
+  font-family:'Marcellus',serif;
+}
+.banda .track{display:flex;gap:50px;white-space:nowrap;animation:scroll 28s linear infinite;font-size:1.1rem;letter-spacing:2px}
+.banda .track span{display:inline-flex;gap:50px;align-items:center}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ===== Secțiuni ===== */
+section{position:relative;z-index:1}
+.sec-head{text-align:center;max-width:680px;margin:0 auto 64px}
+.sec-head .eyebrow{justify-content:center}
+.sec-head h2{font-size:clamp(2.2rem,5vw,3.4rem);color:var(--crem)}
+.sec-head h2 em{font-style:italic;color:var(--foc-clar)}
+.sec-head p{color:var(--crem-soft);margin-top:14px;font-weight:300}
+.servicii{padding:110px 0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{
+  background:linear-gradient(160deg,var(--negru-2),var(--negru));
+  border:1px solid rgba(243,230,207,.08);
+  border-radius:20px;padding:38px 30px;
+  transition:.4s;position:relative;overflow:hidden;
+}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--foc),transparent);transform:scaleX(0);transform-origin:left;transition:.4s}
+.card:hover{transform:translateY(-8px);border-color:rgba(210,112,42,.4);box-shadow:0 24px 50px rgba(0,0,0,.5)}
+.card:hover::before{transform:scaleX(1)}
+.card .ico{
+  width:62px;height:62px;border-radius:16px;display:grid;place-items:center;margin-bottom:22px;
+  background:radial-gradient(circle,rgba(210,112,42,.2),rgba(210,112,42,.05));
+  border:1px solid rgba(210,112,42,.25);color:var(--foc-clar);
+}
+.card .ico svg{width:30px;height:30px}
+.card h3{font-size:1.6rem;color:var(--crem);margin-bottom:10px}
+.card p{color:var(--crem-soft);font-size:.95rem;font-weight:300;margin-bottom:20px}
+.card .lista{list-style:none;font-size:.9rem;color:var(--crem-soft)}
+.card .lista li{padding:6px 0 6px 22px;position:relative}
+.card .lista li::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:var(--foc)}
+.card .link{display:inline-flex;align-items:center;gap:8px;margin-top:22px;color:var(--foc-clar);font-size:.85rem;letter-spacing:1px;text-transform:uppercase;font-weight:500;transition:.3s}
+.card .link:hover{gap:14px}
+.card .link span{font-size:.7rem;opacity:.7}
+
+/* ===== De ce noi ===== */
+.dece{padding:110px 0;background:linear-gradient(180deg,transparent,rgba(31,24,19,.6),transparent)}
+.dece-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:20px}
+.feat{text-align:center;padding:20px}
+.feat .num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--foc);font-weight:700;line-height:1}
+.feat h4{font-family:'Marcellus',serif;font-size:1.2rem;color:var(--crem);margin:14px 0 8px}
+.feat p{font-size:.88rem;color:var(--crem-soft);font-weight:300}
+
+/* ===== Galerie placeholder ===== */
+.galerie{padding:110px 0}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:220px;gap:18px}
+.gal-item{
+  border-radius:16px;overflow:hidden;position:relative;
+  background:linear-gradient(135deg,var(--negru-3),var(--negru-2));
+  border:1px dashed rgba(243,230,207,.18);
+  display:grid;place-items:center;text-align:center;color:var(--crem-soft);
+  transition:.4s;
+}
+.gal-item:hover{border-color:var(--foc);color:var(--foc-clar)}
+.gal-item.big{grid-row:span 2}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block}
+.gal-item .ph-ico{margin-bottom:8px;opacity:.5}
+.gal-item .ph-ico svg{width:32px;height:32px}
+.gal-item .ph-txt{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;padding:0 10px}
+
+/* ===== Ridicare comenzi ===== */
+.ridicare{padding:110px 0}
+.ridicare-box{
+  background:linear-gradient(160deg,var(--negru-2),var(--negru));
+  border:1px solid rgba(243,230,207,.08);
+  border-radius:24px;padding:50px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+}
+.ridicare-box .info h3{font-size:2.2rem;color:var(--crem);margin-bottom:8px}
+.ridicare-box .info h3 em{font-style:italic;color:var(--foc-clar)}
+.ridicare-box .info p{color:var(--crem-soft);font-weight:300;margin-bottom:24px}
+.adresa-line{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+.adresa-line .pin{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:radial-gradient(circle,rgba(210,112,42,.2),rgba(210,112,42,.05));border:1px solid rgba(210,112,42,.25);color:var(--foc-clar)}
+.adresa-line .pin svg{width:20px;height:20px}
+.adresa-line .txt strong{display:block;font-family:'Marcellus',serif;color:var(--crem);font-size:1.05rem;letter-spacing:.5px}
+.adresa-line .txt span{color:var(--crem-soft);font-size:.9rem;font-weight:300}
+.harta{border-radius:18px;overflow:hidden;border:1px solid rgba(243,230,207,.1);min-height:260px}
+.harta iframe{width:100%;height:100%;min-height:260px;border:0;display:block;filter:grayscale(.3) contrast(1.05)}
+
+/* ===== CTA Telefon ===== */
+.cta{
+  padding:120px 0;text-align:center;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 50%,rgba(210,112,42,.16),transparent 70%);
+}
+.cta .topmark{width:54px;height:54px;color:var(--foc);margin:0 auto 18px}
+.cta h2{font-size:clamp(2.4rem,6vw,4.2rem);color:var(--crem);margin-bottom:18px}
+.cta h2 em{font-style:italic;color:var(--foc-clar)}
+.cta p{color:var(--crem-soft);max-width:46ch;margin:0 auto 38px;font-weight:300;font-size:1.1rem}
+.tel-display{
+  display:inline-flex;align-items:center;gap:16px;
+  font-family:'Marcellus',serif;font-size:clamp(1.8rem,5vw,2.8rem);
+  color:var(--crem);margin-bottom:30px;
+}
+.tel-display .ico{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--foc),var(--caramiziu));color:var(--negru)}
+.tel-display .ico svg{width:24px;height:24px}
+.cta .hours{margin-top:30px;font-size:.9rem;color:var(--crem-soft);letter-spacing:1px}
+
+/* ===== Footer ===== */
+footer{
+  position:relative;z-index:1;
+  border-top:1px solid rgba(243,230,207,.08);
+  padding:60px 0 30px;background:var(--negru-2);
+}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.foot-brand .brand{margin-bottom:16px}
+.foot-brand p{color:var(--crem-soft);font-size:.92rem;font-weight:300;max-width:36ch}
+.foot-col h5{font-family:'Marcellus',serif;font-size:1rem;color:var(--foc-clar);margin-bottom:16px;letter-spacing:1px}
+.foot-col a,.foot-col p{display:block;color:var(--crem-soft);font-size:.9rem;padding:5px 0;transition:.3s}
+.foot-col a:hover{color:var(--foc-clar);padding-left:6px}
+.foot-bottom{text-align:center;padding-top:26px;border-top:1px solid rgba(243,230,207,.06);color:var(--crem-soft);font-size:.82rem;letter-spacing:.5px}
+.foot-bottom .sep{color:var(--foc);margin:0 6px}
+
+/* ===== Animații reveal ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:.8s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== Responsive ===== */
+@media(max-width:900px){
+  nav.links{display:none}
+  .menu-toggle{display:block}
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero .eyebrow,.hero-cta{justify-content:center}
+  .hero .lead{margin-left:auto;margin-right:auto}
+  .medalion{order:-1;margin-bottom:30px}
+  .cards,.dece-grid,.gal-grid,.foot-grid,.ridicare-box{grid-template-columns:1fr}
+  .dece-grid{grid-template-columns:repeat(2,1fr)}
+  .gal-grid{grid-auto-rows:180px}
+  .gal-item.big{grid-row:span 1}
+  .btn-tel span.lbl{display:none}
+}
+@media(max-width:560px){
+  .dece-grid{grid-template-columns:1fr}
+  .ridicare-box{padding:30px}
+}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<!-- ===== HEADER ===== -->
+<header id="header">
+  <a href="#" class="brand"><span class="mark">AM</span> Ai lu' Moțatu</a>
+  <nav class="links">
+    <a href="#servicii">Servicii</a>
+    <a href="#dece">De ce noi</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#ridicare">Ridicare</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="tel:0736063522" class="btn-tel">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .7-.2 1L6.6 10.8z"/></svg>
+    <span class="lbl">0736 063 522</span>
+  </a>
+  <button class="menu-toggle" onclick="document.querySelector('nav.links').style.display='flex'">☰</button>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow reveal">Catering tradițional românesc</span>
+      <h1 class="reveal">Gustul de <em>acasă</em>,<br>la masa ta</h1>
+      <p class="lead reveal">Mâncare gătită cu suflet, ca la mama acasă — pentru evenimentele tale private, sărbători și întâlniri de business. Totul preparat din ingrediente proaspete, cu grijă pentru fiecare detaliu.</p>
+      <div class="hero-cta reveal">
+        <a href="tel:0736063522" class="btn-mare">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .7-.2 1L6.6 10.8z"/></svg>
+          Sună pentru ofertă
+        </a>
+        <a href="#servicii" class="btn-ghost">Vezi serviciile →</a>
+      </div>
+    </div>
+    <div class="medalion reveal">
+      <div class="glow"></div>
+      <div class="disc">
+        <div class="ring"></div>
+        <div class="inner">
+          <svg class="wheat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22V8"/>
+            <path d="M12 8c0-2 1.5-3.5 3.5-3.5C15.5 6.5 14 8 12 8z"/>
+            <path d="M12 8c0-2-1.5-3.5-3.5-3.5C8.5 6.5 10 8 12 8z"/>
+            <path d="M12 13c0-2 1.5-3.5 3.5-3.5C15.5 11.5 14 13 12 13z"/>
+            <path d="M12 13c0-2-1.5-3.5-3.5-3.5C8.5 11.5 10 13 12 13z"/>
+            <path d="M12 18c0-2 1.5-3.5 3.5-3.5C15.5 16.5 14 18 12 18z"/>
+            <path d="M12 18c0-2-1.5-3.5-3.5-3.5C8.5 16.5 10 18 12 18z"/>
+          </svg>
+          <div class="mono">Ai lu'<br>Moțatu</div>
+          <div class="sub">Gustul de acasă</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BANDĂ ===== -->
+<div class="banda">
+  <div class="track">
+    <span>Aniversări &nbsp;•&nbsp; Petreceri private &nbsp;•&nbsp; Majorate &nbsp;•&nbsp; Platouri de sărbători &nbsp;•&nbsp; Business lunch &nbsp;•&nbsp; Comemorări &nbsp;•&nbsp;</span>
+    <span>Aniversări &nbsp;•&nbsp; Petreceri private &nbsp;•&nbsp; Majorate &nbsp;•&nbsp; Platouri de sărbători &nbsp;•&nbsp; Business lunch &nbsp;•&nbsp; Comemorări &nbsp;•&nbsp;</span>
+  </div>
+</div>
+
+<!-- ===== SERVICII ===== -->
+<section class="servicii" id="servicii">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Ce pregătim pentru tine</span>
+      <h2>Servicii de <em>catering</em></h2>
+      <p>De la petreceri intime până la mese de business, gătim totul cu grijă pentru fiecare ocazie.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18M5 11V7a2 2 0 012-2h10a2 2 0 012 2v4M4 11l1 8h14l1-8M9 5V3M15 5V3"/></svg>
+        </div>
+        <h3>Evenimente private</h3>
+        <p>Momentele speciale merită o masă pe măsură, pregătită cu drag pentru tine și invitații tăi.</p>
+        <ul class="lista">
+          <li>Aniversări &amp; majorate</li>
+          <li>Petreceri private</li>
+          <li>Botezuri &amp; mese de familie</li>
+          <li>Comemorări</li>
+        </ul>
+        <a href="#contact" class="link">Cere meniul <span>▸</span></a>
+      </div>
+      <div class="card reveal">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-1.5 11h-15L3 9zM3 9l2-4h14l2 4M8 13v3M12 13v3M16 13v3"/></svg>
+        </div>
+        <h3>Platouri de sărbători</h3>
+        <p>Bucate tradiționale pentru sărbătorile mari, livrate gata pregătite, direct la tine.</p>
+        <ul class="lista">
+          <li>Platouri de Crăciun &amp; Paște</li>
+          <li>Aperitive reci &amp; calde</li>
+          <li>Preparate tradiționale</li>
+          <li>Comenzi personalizate</li>
+        </ul>
+        <a href="#contact" class="link">Cere meniul <span>▸</span></a>
+      </div>
+      <div class="card reveal">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4zM4 7l2-3h12l2 3M9 12h6M12 7v12"/></svg>
+        </div>
+        <h3>Corporate &amp; Business lunch</h3>
+        <p>Mese consistente și gustoase pentru echipa ta, livrate punctual la birou sau la eveniment.</p>
+        <ul class="lista">
+          <li>Prânz pentru companii</li>
+          <li>Coffee break &amp; gustări</li>
+          <li>Evenimente corporate</li>
+          <li>Abonamente săptămânale</li>
+        </ul>
+        <a href="#contact" class="link">Cere meniul <span>▸</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DE CE NOI ===== -->
+<section class="dece" id="dece">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">De ce Ai lu' Moțatu</span>
+      <h2>Mâncare gătită <em>cu suflet</em></h2>
+    </div>
+    <div class="dece-grid">
+      <div class="feat reveal">
+        <div class="num">01</div>
+        <h4>Rețete tradiționale</h4>
+        <p>Preparate românești autentice, gătite după rețete de familie.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="num">02</div>
+        <h4>Ingrediente proaspete</h4>
+        <p>Alegem zilnic produse proaspete, de încredere, de la furnizori locali.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="num">03</div>
+        <h4>Pregătit cu grijă</h4>
+        <p>Fiecare preparat este gătit atent, pentru gustul autentic de acasă.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="num">04</div>
+        <h4>Livrare punctuală</h4>
+        <p>Ajungem la timp, cu mâncarea caldă și aranjată frumos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALERIE (placeholder poze) ===== -->
+<section class="galerie" id="galerie">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Din bucătăria noastră</span>
+      <h2>Galerie <em>foto</em></h2>
+      <p>În curând adăugăm aici poze cu preparatele și evenimentele noastre.</p>
+    </div>
+    <div class="gal-grid">
+      <!-- Pentru a pune o poză reală, înlocuiește conținutul cu: <img src="poza1.jpg" alt="..."> -->
+      <div class="gal-item big reveal"><div><div class="ph-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5L5 19"/></svg></div><div class="ph-txt">Fotografie preparat</div></div></div>
+      <div class="gal-item reveal"><div><div class="ph-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5L5 19"/></svg></div><div class="ph-txt">Aperitive</div></div></div>
+      <div class="gal-item reveal"><div><div class="ph-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5L5 19"/></svg></div><div class="ph-txt">Fel principal</div></div></div>
+      <div class="gal-item reveal"><div><div class="ph-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5L5 19"/></svg></div><div class="ph-txt">Eveniment</div></div></div>
+      <div class="gal-item big reveal"><div><div class="ph-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5L5 19"/></svg></div><div class="ph-txt">Platou de sărbători</div></div></div>
+      <div class="gal-item reveal"><div><div class="ph-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5L5 19"/></svg></div><div class="ph-txt">Desert</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RIDICARE COMENZI ===== -->
+<section class="ridicare" id="ridicare">
+  <div class="wrap">
+    <div class="ridicare-box reveal">
+      <div class="info">
+        <span class="eyebrow">Ridicare comenzi</span>
+        <h3>Ne găsești în <em>Craiova</em></h3>
+        <p>Comenzile pot fi ridicate de la adresa noastră. Sună-ne în prealabil ca să pregătim totul pentru tine.</p>
+        <div class="adresa-line">
+          <span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0114 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <div class="txt">
+            <strong>Str. Merișorului nr. 2A</strong>
+            <span>Craiova, jud. Dolj</span>
+          </div>
+        </div>
+        <div class="adresa-line">
+          <span class="pin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .7-.2 1L6.6 10.8z"/></svg></span>
+          <div class="txt">
+            <strong>0736 063 522</strong>
+            <span>Sună pentru comenzi și oferte</span>
+          </div>
+        </div>
+      </div>
+      <div class="harta">
+        <iframe src="https://maps.google.com/maps?q=Str.%20Meri%C8%99orului%202A%2C%20Craiova&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Harta — Str. Merișorului 2A, Craiova"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA TELEFON ===== -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <svg class="topmark reveal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8"/><path d="M12 8c0-2 1.5-3.5 3.5-3.5C15.5 6.5 14 8 12 8zM12 8c0-2-1.5-3.5-3.5-3.5C8.5 6.5 10 8 12 8zM12 14c0-2 1.5-3.5 3.5-3.5C15.5 12.5 14 14 12 14zM12 14c0-2-1.5-3.5-3.5-3.5C8.5 12.5 10 14 12 14z"/></svg>
+    <h2 class="reveal">Pregătim masa pentru <em>evenimentul tău</em></h2>
+    <p class="reveal">Sună-ne și îți pregătim o ofertă personalizată. Discutăm meniul, numărul de invitați și totul despre evenimentul tău.</p>
+    <a href="tel:0736063522" class="tel-display reveal">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .7-.2 1L6.6 10.8z"/></svg></span>
+      0736 063 522
+    </a>
+    <div class="reveal">
+      <a href="tel:0736063522" class="btn-mare">Sună acum pentru ofertă</a>
+    </div>
+    <div class="hours reveal">Luni – Duminică &nbsp;•&nbsp; 09:00 – 21:00</div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="brand"><span class="mark">AM</span> Ai lu' Moțatu</a>
+        <p>Catering tradițional românesc. Gustul de acasă, gătit cu suflet pentru fiecare ocazie.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Servicii</h5>
+        <a href="#servicii">Evenimente private</a>
+        <a href="#servicii">Platouri de sărbători</a>
+        <a href="#servicii">Business lunch</a>
+        <a href="#galerie">Galerie</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="tel:0736063522">0736 063 522</a>
+        <p>Str. Merișorului nr. 2A, Craiova</p>
+        <p>Luni – Duminică, 09:00 – 21:00</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © 2026 Ai lu' Moțatu <span class="sep">•</span> Gustul de acasă <span class="sep">•</span> Toate drepturile rezervate
+    </div>
+  </div>
+</footer>
+
+<script>
+// Header scrolled
+const header=document.getElementById('header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40));
+
+// Reveal on scroll
+const io=new IntersectionObserver((e)=>{
+  e.forEach((en,i)=>{if(en.isIntersecting){setTimeout(()=>en.target.classList.add('in'),i*60);io.unobserve(en.target)}})
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
