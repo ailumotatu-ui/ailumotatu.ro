@@ -1,0 +1,44 @@
+{
+  "name": "Ai lu' Moțatu — Gustul de acasă",
+  "short_name": "Ai lu' Moțatu",
+  "description": "Meniul zilei, platouri și meniuri pentru pomeni, cu livrare în Craiova.",
+  "lang": "ro",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#16110d",
+  "theme_color": "#16110d",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Meniul zilei",
+      "short_name": "Meniul zilei",
+      "url": "/meniul-zilei/"
+    },
+    {
+      "name": "Platouri",
+      "short_name": "Platouri",
+      "url": "/platouri/"
+    }
+  ]
+}
