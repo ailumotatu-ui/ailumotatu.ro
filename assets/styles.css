@@ -180,6 +180,28 @@ p {
   gap: 0.7rem;
 }
 
+.order-online-link {
+  align-items: center;
+  background: linear-gradient(135deg, #f0a24f, var(--fire-dark));
+  border: 1px solid rgba(255, 208, 144, 0.42);
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(189, 98, 37, 0.24);
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 900;
+  justify-content: center;
+  letter-spacing: 0.035em;
+  min-height: 46px;
+  padding: 0.65rem 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.order-online-link:hover {
+  background: #f0a24f;
+}
+
 .phone-link,
 .nav-toggle {
   align-items: center;
@@ -323,6 +345,24 @@ p {
 .button-whatsapp {
   background: #b8e39d;
   color: #13200f;
+}
+
+.order-platform-note {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 0.85rem;
+}
+
+.page-order-actions {
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.6rem;
+}
+
+.page-order-actions .order-platform-note {
+  margin: 0;
+  max-width: 340px;
+  text-align: left;
 }
 
 .hero-badge {
@@ -1060,6 +1100,10 @@ fieldset.field {
     display: none;
   }
 
+  .order-online-link {
+    display: none;
+  }
+
   .nav-toggle {
     display: inline-flex;
   }
@@ -1651,8 +1695,8 @@ fieldset.field {
     border-top: 1px solid rgba(232, 145, 63, 0.3);
     bottom: 0;
     display: grid;
-    gap: 0.65rem;
-    grid-template-columns: 1fr 1fr;
+    gap: 0.45rem;
+    grid-template-columns: 0.78fr 1fr 1.35fr;
     left: 0;
     padding: 0.65rem max(1rem, var(--safe-right)) calc(0.65rem + var(--safe-bottom)) max(1rem, var(--safe-left));
     position: fixed;
@@ -1674,14 +1718,25 @@ fieldset.field {
     touch-action: manipulation;
   }
 
-  .mobile-quick-actions a:first-child {
+  .mobile-quick-actions .quick-call {
     background: rgba(247, 234, 211, 0.07);
     color: var(--cream);
   }
 
-  .mobile-quick-actions a:last-child {
+  .mobile-quick-actions .quick-whatsapp {
     background: #b8e39d;
     color: #13200f;
+  }
+
+  .mobile-quick-actions .quick-order {
+    background: linear-gradient(135deg, #f0a24f, var(--fire-dark));
+    border-color: rgba(255, 208, 144, 0.42);
+    box-shadow: 0 8px 20px rgba(189, 98, 37, 0.22);
+    color: var(--ink);
+  }
+
+  .quick-order-extra {
+    margin-left: 0.24em;
   }
 
   .partner-float {
@@ -1705,6 +1760,22 @@ fieldset.field {
 
   .partner-float__copy strong {
     font-size: 0.84rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-quick-actions {
+    gap: 0.35rem;
+    padding-left: max(0.6rem, var(--safe-left));
+    padding-right: max(0.6rem, var(--safe-right));
+  }
+
+  .mobile-quick-actions a {
+    font-size: 0.82rem;
+  }
+
+  .quick-order-extra {
+    display: none;
   }
 }
 

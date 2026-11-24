@@ -136,8 +136,22 @@
     privacyLink.insertAdjacentElement("afterend", button);
   }
 
+  function trackDishOrderClicks() {
+    document.addEventListener("click", function (event) {
+      const link = event.target.closest("[data-dish-order]");
+      if (!link || readConsent() !== "granted") return;
+      window.gtag("event", "order_dish_click", {
+        link_url: link.href,
+        link_text: link.textContent.trim(),
+        page_location: window.location.href,
+        transport_type: "beacon"
+      });
+    }, true);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     addSettingsButton();
+    trackDishOrderClicks();
     const consent = readConsent();
     if (consent === "granted") grantAnalytics();
     else if (consent !== "denied") buildConsentBanner();
